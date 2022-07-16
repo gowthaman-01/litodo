@@ -14,6 +14,11 @@ struct AddTodoView: View {
     @State private var todoName: String = ""
     @State private var todoPriority: String = "Normal"
     let todoPriorities: Array = ["High", "Normal", "Low"]
+    // For error messages
+    @State private var showError: Bool = false
+    @State private var errorTitle: String = ""
+    @State private var errorMessage: String = ""
+    
     
 // MARK: - BODY
     var body: some View {
@@ -40,7 +45,13 @@ struct AddTodoView: View {
                             } catch {
                                 print(error)
                             }
+                        } else {
+                            self.showError = true
+                            self.errorTitle = "Invalid Input"
+                            self.errorMessage = "Please enter your Todo item!"
+                            return
                         }
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Save")
                     }
@@ -53,7 +64,9 @@ struct AddTodoView: View {
                     self.presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "xmark")
-            })
+            }).alert(isPresented: $showError) {
+                Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }
