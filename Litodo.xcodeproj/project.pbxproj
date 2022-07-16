@@ -13,6 +13,7 @@
 		1CC141402882F72A00009BFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1413F2882F72A00009BFF /* Preview Assets.xcassets */; };
 		1CC141422882F72A00009BFF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC141412882F72A00009BFF /* Persistence.swift */; };
 		1CC141452882F72A00009BFF /* Litodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CC141432882F72A00009BFF /* Litodo.xcdatamodeld */; };
+		1CC1414D2882F7DB00009BFF /* AddToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1414C2882F7DB00009BFF /* AddToDoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		1CC1413F2882F72A00009BFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1CC141412882F72A00009BFF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		1CC141442882F72A00009BFF /* Litodo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Litodo.xcdatamodel; sourceTree = "<group>"; };
+		1CC1414C2882F7DB00009BFF /* AddToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				1CC141382882F72700009BFF /* LitodoApp.swift */,
-				1CC1413A2882F72700009BFF /* ContentView.swift */,
+				1CC1414B2882F76100009BFF /* View */,
 				1CC1413C2882F72A00009BFF /* Assets.xcassets */,
 				1CC141412882F72A00009BFF /* Persistence.swift */,
 				1CC141432882F72A00009BFF /* Litodo.xcdatamodeld */,
@@ -71,6 +73,15 @@
 				1CC1413F2882F72A00009BFF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CC1414B2882F76100009BFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CC1413A2882F72700009BFF /* ContentView.swift */,
+				1CC1414C2882F7DB00009BFF /* AddToDoView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CC141422882F72A00009BFF /* Persistence.swift in Sources */,
+				1CC1414D2882F7DB00009BFF /* AddToDoView.swift in Sources */,
 				1CC1413B2882F72700009BFF /* ContentView.swift in Sources */,
 				1CC141452882F72A00009BFF /* Litodo.xcdatamodeld in Sources */,
 				1CC141392882F72700009BFF /* LitodoApp.swift in Sources */,
