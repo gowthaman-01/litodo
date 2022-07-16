@@ -13,11 +13,10 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.todoName = "name"
-            newItem.todoPriority = "Normal"
-        }
+        let newItem = Item(context: viewContext)
+        newItem.todoName = "Fetch Alex from cello"
+        newItem.todoPriority = "Normal"
+        
         do {
             try viewContext.save()
         } catch {

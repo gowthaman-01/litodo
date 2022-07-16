@@ -41,7 +41,6 @@ struct AddTodoView: View {
                             todoItem.todoPriority = self.todoPriority
                             do {
                                 try self.managedObjectContext.save()
-                                print("New todo: \(todoItem.todoName ?? ""), Priority \(todoItem.todoPriority ?? "")")
                             } catch {
                                 print(error)
                             }
