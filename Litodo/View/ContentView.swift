@@ -12,25 +12,48 @@ struct ContentView: View {
     // MARK: - PROPERTIES
     @State private var showAddToDo: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(entity: Item.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Item.todoName, ascending: true)])  var todoItems: FetchedResults<Item>
     
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            // Todo item list
-            List(0 ..< 5) {todoItem in
-                Text("Hello World")
+            // Displaying todo items
+            List {
+                ForEach(self.todoItems, id: \.self) { todoItem in
+                    HStack{
+                        Text(todoItem.todoName ?? "Unknown")
+                        Spacer()
+                        Text(todoItem.todoPriority ?? "Unknown")
+                    }
+                } .onDelete(perform: deleteTodoItem)
             }
             .navigationBarTitle("Todos", displayMode: .inline)
             // Add Todo button
-            .navigationBarItems(trailing:
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing:
                 Button(action: {
                     self.showAddToDo.toggle()
+                    print(type(of: self.todoItems))
+                print("hello")
             }){
                 Image(systemName: "plus")
             }.sheet(isPresented: $showAddToDo) {
                 AddTodoView().environment(\.managedObjectContext, self.managedObjectContext)
-                
             })
+        }
+    }
+    
+    // MARK: - FUNCTIONS
+    private func deleteTodoItem(at offsets: IndexSet) {
+        for index in offsets {
+            let deleteItem = todoItems[index]
+            managedObjectContext.delete(deleteItem)
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print(error)
+            }
         }
     }
 }
@@ -41,4 +64,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+
 
