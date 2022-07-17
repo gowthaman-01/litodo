@@ -12,6 +12,7 @@ struct ContentView: View {
     // MARK: - PROPERTIES
     @State private var showAddToDo: Bool = false
     @State private var animatingButton: Bool = false
+    @State private var showSettings: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: Item.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Item.todoName, ascending: true)])  var todoItems: FetchedResults<Item>
     
@@ -35,16 +36,16 @@ struct ContentView: View {
                     leading: EditButton(),
                     trailing:
                     Button(action: {
-                        self.showAddToDo.toggle()
+                        self.showSettings.toggle()
                 }){
-                    Image(systemName: "plus")
+                    Image(systemName: "gear")
                 })
                 if todoItems.count == 0 {
                     EmptyView()
                 }
             }
-            .sheet(isPresented: $showAddToDo) {
-                AddTodoView().environment(\.managedObjectContext, self.managedObjectContext)
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
             }
             .overlay(
                 ZStack {
