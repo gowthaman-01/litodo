@@ -10,6 +10,7 @@
 		1C0D2762288374D4000D1591 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D2761288374D4000D1591 /* Launch Screen.storyboard */; };
 		1C0D2764288377A8000D1591 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0D2763288377A8000D1591 /* EmptyView.swift */; };
 		1C492F102883C06300EF758F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C492F0F2883C06300EF758F /* AboutView.swift */; };
+		1C492F122883C0A000EF758F /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C492F112883C0A000EF758F /* LinkView.swift */; };
 		1CC141392882F72700009BFF /* LitodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC141382882F72700009BFF /* LitodoApp.swift */; };
 		1CC1413B2882F72700009BFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1413A2882F72700009BFF /* ContentView.swift */; };
 		1CC1413D2882F72A00009BFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1413C2882F72A00009BFF /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		1C0D2761288374D4000D1591 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1C0D2763288377A8000D1591 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		1C492F0F2883C06300EF758F /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		1C492F112883C0A000EF758F /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		1CC141352882F72700009BFF /* Litodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Litodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC141382882F72700009BFF /* LitodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitodoApp.swift; sourceTree = "<group>"; };
 		1CC1413A2882F72700009BFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				1CC1414C2882F7DB00009BFF /* AddToDoView.swift */,
 				1C0D2763288377A8000D1591 /* EmptyView.swift */,
 				1C492F0F2883C06300EF758F /* AboutView.swift */,
+				1C492F112883C0A000EF758F /* LinkView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			files = (
 				1CC141422882F72A00009BFF /* Persistence.swift in Sources */,
 				1C492F102883C06300EF758F /* AboutView.swift in Sources */,
+				1C492F122883C0A000EF758F /* LinkView.swift in Sources */,
 				1CC1414D2882F7DB00009BFF /* AddToDoView.swift in Sources */,
 				1CC1413B2882F72700009BFF /* ContentView.swift in Sources */,
 				1CC141452882F72A00009BFF /* Litodo.xcdatamodeld in Sources */,
