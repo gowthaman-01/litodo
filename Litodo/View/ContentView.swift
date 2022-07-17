@@ -11,6 +11,7 @@ import CoreData
 struct ContentView: View {
     // MARK: - PROPERTIES
     @State private var showAddToDo: Bool = false
+    @State private var animatingButton: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: Item.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Item.todoName, ascending: true)])  var todoItems: FetchedResults<Item>
     
@@ -35,17 +36,42 @@ struct ContentView: View {
                     trailing:
                     Button(action: {
                         self.showAddToDo.toggle()
-                        print(type(of: self.todoItems))
-                    print("hello")
                 }){
                     Image(systemName: "plus")
-                }.sheet(isPresented: $showAddToDo) {
-                    AddTodoView().environment(\.managedObjectContext, self.managedObjectContext)
                 })
                 if todoItems.count == 0 {
                     EmptyView()
                 }
             }
+            .sheet(isPresented: $showAddToDo) {
+                AddTodoView().environment(\.managedObjectContext, self.managedObjectContext)
+            }
+            .overlay(
+                ZStack {
+                    Group {
+                        Circle()
+                            .fill(Color.blue)
+                            .opacity(self.animatingButton ? 0.2 : 0)
+                            .scaleEffect(self.animatingButton ? 1 : 0)
+                            .frame(width: 68, height: 68, alignment: .center)
+                    }
+                    .animation(.easeOut(duration: 1).repeatForever(autoreverses: true), value: animatingButton)
+                    .onAppear(perform: {self.animatingButton.toggle()})
+                    Button(action: {
+                        self.showAddToDo.toggle()
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .background(Circle().fill(Color("ColorBase")))
+                            .frame(width: 48, height: 48, alignment: .center)
+                    }
+                    
+                }
+                    .padding(.bottom, 15)
+                    .padding(.trailing, 15)
+                    , alignment: .bottomTrailing
+            )
         }
     }
     
